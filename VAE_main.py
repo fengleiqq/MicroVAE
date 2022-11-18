@@ -10,8 +10,8 @@ import os
 import gym
 import sys
 from tqdm import tqdm
-from gym.envs.box2d import car_racing
-from gym.envs.box2d.car_dynamics import Car
+# from gym.envs.box2d import car_racing
+# from gym.envs.box2d.car_dynamics import Car
 import numpy as np
 from collections import OrderedDict
 from PIL import Image as PIL_Image
