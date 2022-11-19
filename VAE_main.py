@@ -193,7 +193,7 @@ if __name__ == "__main__":
             data_flag = args[i]
         if opt == '--vae_pipeline':
             flag = args[i]
-        if opt == '--datadir'
+        if opt == '--datadir':
             datadir = args[i]
 
     if not os.path.exists(model_path):
