@@ -66,9 +66,9 @@ def gather_data(arr, data):
     return data if arr.shape[0] == 0 else np.concatenate((arr, data), axis=0)
 
 
-def get_data_array():
+def get_data_array(dataset_dir):
     print('Fetching data arrays')
-    dataset_dir = os.getcwd() + '/dataset'
+#     dataset_dir = os.getcwd() + '/dataset'
     train_array = np.array([])
     test_array = np.array([])
     for np_file in os.listdir(dataset_dir):
@@ -185,13 +185,16 @@ if __name__ == "__main__":
     data_flag = 'n'
     for i, opt in enumerate(opts):
         if opt == '--model_dir':
-            model_path = os.getcwd() + args[i]
+            model_path = args[i]
+#             model_path = os.getcwd() + args[i]
         if opt == '--vae_model_name':
             vae_name = args[i]
         if opt == '--collect_data':
             data_flag = args[i]
         if opt == '--vae_pipeline':
             flag = args[i]
+        if opt == '--datadir'
+            datadir = args[i]
 
     if not os.path.exists(model_path):
         print('Making directory: ', model_path)
@@ -214,7 +217,7 @@ if __name__ == "__main__":
     elif data_flag == 'n':
         print('Using data from dataset directory')
 
-    train_array, test_array = get_data_array()
+    train_array, test_array = get_data_array(datadir)
     train_dataloader = generate_dataloaders(train_array)
     test_dataloader = generate_dataloaders(test_array, batch_size=1)
     vae_model_path = model_path + '/vae/' + vae_name
